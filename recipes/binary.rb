@@ -1,4 +1,4 @@
-ver  = '0.8.3'
+ver  = '0.8.5'
 arch = 'linux-x86_64'
 src_filepath = "#{Chef::Config['file_cache_path']}/slimerjs-#{ver}-#{arch}.tar.bz2"
 extract_path = "#{Chef::Config['file_cache_path']}/slimerjs-#{ver}"
