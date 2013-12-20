@@ -1,11 +1,14 @@
-ver  = '0.8.5'
+ver  = '0.9.0'
 arch = 'linux-x86_64'
+major = ver.slice(0, ver.rindex("."))
+
 src_filepath = "#{Chef::Config['file_cache_path']}/slimerjs-#{ver}-#{arch}.tar.bz2"
 extract_path = "#{Chef::Config['file_cache_path']}/slimerjs-#{ver}"
 install_path = "/usr/local/slimerjs"
+bin_path = "/usr/local/bin"
 
 remote_file src_filepath do
-  source "http://download.slimerjs.org/v0.8/slimerjs-#{ver}-#{arch}.tar.bz2"
+  source "http://download.slimerjs.org/v#{major}/#{ver}/slimerjs-#{ver}-#{arch}.tar.bz2"
   action :create_if_missing
 end
 
@@ -22,4 +25,8 @@ bash 'extract' do
     cp -a #{extract_path} #{install_path}
   EOH
   not_if { ::File.exists?(extract_path) }
+end
+
+link "#{bin_path}/slimerjs" do
+  to "#{install_path}/slimerjs"
 end
