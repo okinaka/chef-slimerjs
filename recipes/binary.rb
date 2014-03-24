@@ -1,4 +1,4 @@
-ver  = '0.9.0'
+ver  = '0.9.1'
 arch = 'linux-x86_64'
 major = ver.slice(0, ver.rindex("."))
 
