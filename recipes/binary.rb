@@ -1,5 +1,5 @@
-ver  = '0.9.1'
-arch = 'linux-x86_64'
+ver  = '0.9.4'
+arch = "linux-#{node['kernel']['machine']}"
 major = ver.slice(0, ver.rindex("."))
 
 src_filepath = "#{Chef::Config['file_cache_path']}/slimerjs-#{ver}-#{arch}.tar.bz2"
